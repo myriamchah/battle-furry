@@ -7,4 +7,5 @@ class Warrior < ApplicationRecord
   validates :strength, numericality: { only_integer: true, less_than_or_equal_to: 10 }
   validates :xp, numericality: { only_integer: true }
   attribute :xp, :integer, default: 0
+  has_one_attached :avatar
 end

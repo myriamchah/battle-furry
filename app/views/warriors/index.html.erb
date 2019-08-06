@@ -1,0 +1,18 @@
+<div class ="container">
+
+<h2>Catfighters list :</h2>
+
+<div class="cat-card">
+<% @warriors.each do |warrior| %>
+<% if warrior.avatar != nil %>
+<div> <%= image_tag(warrior.avatar) %></div>
+<% end %>
+<div> <%= warrior.name %>
+ <%= warrior.intro %></div>
+Life points: <%= warrior.life_points %>,
+Points of attack: <%= warrior.strength %>,
+Experience: <%= warrior.xp %>
+<% end %>
+
+</div>
+</div>
