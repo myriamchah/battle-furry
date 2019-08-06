@@ -1,15 +1,17 @@
-<div class= container>
+<div class="flex-container">
   <h1>Welcome to Battle Furry</h1>
 
-  <div class="intro">In today's world, mice, birds, even fishes are becoming increasingly rare!
-  Our cute little furry balls have to fight to win the attention of their hoomans and get fed!
-  You have now entered the Cats arena and shall select below two catfighters who will get the chance to be fed by you.
-  <br>
-  You can also create your own pet! </div>
+  <div class="intro">
+    In today's world, mice, birds, even fishes are becoming increasingly rare!
+    Our cute little furry balls have to fight to win the attention of their hoomans and get fed!
+    You have now entered the Cats arena and shall select below two catfighters who will get the chance to be fed by you. You can also create your own pet! </div>
+
+  <div class="center-items">
+    <%= link_to "Create a new Catfighter", new_warrior_path, class: "btn-action"  %>
+    <%= link_to "See all Catfighters", warriors_path, class: "btn-action"  %>
+  </div>
 
 </div>
 
-<div class="footer"><i> NB: No animals were harmed during the making of this app </i>
-</div>
 
 
