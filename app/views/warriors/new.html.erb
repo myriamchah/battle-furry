@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="form">
+    <h2 class="caption p-3">Please add all infos regarding your new catfighter: </h2>
+      <%= simple_form_for @warrior do |f| %>
+        <%= f.input :name %>
+        <%= f.input :intro %>
+        <%= f.input :life_points %>
+        <%= f.input :strength %>
+        <%= f.input :xp %>
+        <%= f.file_field :avatar %>
+        <%= f.submit "Let the cat enter the arena!" %>
+      <% end %>
+  </div>
+</div>
