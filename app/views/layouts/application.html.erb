@@ -4,12 +4,13 @@
     <title>BattleFurry</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag asset_path('paw_print-512.png') %>
+    <title>Battle Furry</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background: radial-gradient(circle, rgba(238,147,55,1) 42%, rgba(133,12,12,1) 90%)">
     <%= yield %>
   </body>
 </html>

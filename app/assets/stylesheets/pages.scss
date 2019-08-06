@@ -1,3 +1,23 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  font-family: $headers-font;
+  font-size: 64px;
+  text-align: center;
+  text-shadow:1px 1px 2px white;
+}
+
+h2{
+    font-family: $headers-font;
+  font-size: 32px;
+  text-align: center;
+  text-shadow:1px 1px 2px white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: $body-font;
+  font-size: 24px;
+  padding: 12px;
+  height: 95vh;
+}
