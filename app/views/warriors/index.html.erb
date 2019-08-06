@@ -1,18 +1,25 @@
-<div class ="container">
+<div class ="flex-container">
 
 <h2>Catfighters list :</h2>
 
-<div class="cat-card">
 <% @warriors.each do |warrior| %>
-<% if warrior.avatar != nil %>
-<div> <%= image_tag(warrior.avatar) %></div>
-<% end %>
-<div> <%= warrior.name %>
- <%= warrior.intro %></div>
-Life points: <%= warrior.life_points %>,
-Points of attack: <%= warrior.strength %>,
-Experience: <%= warrior.xp %>
+  <div class="cat-card">
+    <div> <%= war_avatar(warrior) %> </div>
+    <div class="presentation">
+      <span id="name"> <%= warrior.name %> </span>
+      <br>
+      <%= warrior.intro %>
+    </div>
+    <div class="characteristics">
+      Life points: <%= warrior.life_points %>
+      <br>
+      Points of attack: <%= warrior.strength %>
+      <br>
+      Experience: <%= warrior.xp %>
+    </div>
+  </div>
 <% end %>
 
-</div>
+<%= link_to "Create a new Catfighter", new_warrior_path %>
+<%= link_to "Back to Arena (Home page)", root_path %>
 </div>

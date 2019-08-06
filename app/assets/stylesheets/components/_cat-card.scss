@@ -1,9 +1,28 @@
 .cat-card {
+  flex: 50% 50%;
   display: flex;
-  flex-direction: column;
-  font-size: 16px;
+  font-size: 24px;
+  background-color: rgba(241,237,233,.5);
+  padding: 16px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  .presentation {
+    padding: 20px;
+    flex: 50%;
+    #name {
+      font-size: 30px;
+      font-weight: 900;
+    }
+  }
+  .characteristics {
+    padding: 20px;
+    flex: 40%;
+  }
   img {
     border-radius: 50%;
+    width: 120px;
+    height: 120px;
   }
 }
 
