@@ -1,30 +1,38 @@
 <div class ="flex-container">
 
-<h2>Catfighters list :</h2>
+  <h2>Catfighters list :</h2>
 
-<% @warriors.each do |warrior| %>
-  <div class="cat-card">
-    <div> <%= war_avatar(warrior) %> </div>
-    <div class="presentation">
-      <span id="name"> <%= warrior.name %> </span>
-      <br>
-      <%= warrior.intro %>
+  <% @warriors.each do |warrior| %>
+    <div class="cat-card">
+      <div> <%= war_avatar(warrior) %>
+      </div>
+
+      <div class="presentation">
+        <span id="name"> <%= warrior.name %> </span>
+        <br>
+        <%= warrior.intro %>
+      </div>
+
+      <div class="characteristics">
+        Life points: <%= warrior.life_points %>
+        <br>
+        Points of attack: <%= warrior.strength %>
+        <br>
+        Experience: <%= warrior.xp %>
+      </div>
+
+      <div class="icon">
+        <%= link_to "<i class='far fa-eye'></i>".html_safe, warrior_path(warrior) %>
+        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_warrior_path(warrior) %>
+        <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, warrior_path(warrior), method: :delete, :data => {:confirm => 'Are you sure?'}%>
+      </div>
     </div>
-    <div class="characteristics">
-      Life points: <%= warrior.life_points %>
-      <br>
-      Points of attack: <%= warrior.strength %>
-      <br>
-      Experience: <%= warrior.xp %>
-    </div>
+  <% end %>
+
+  <div class="center-items">
+    <%= link_to "Create a new Catfighter", new_warrior_path, class: "btn-action" %>
   </div>
-<% end %>
-
-<div class="center-items">
-<%= link_to "Create a new Catfighter", new_warrior_path, class: "btn-action" %>
-</div>
-<div class="center-items">
-<%= link_to "Back to Arena (Home page)", root_path, class: "btn-back" %>
-
-</div>
+  <div class="center-items">
+  <%= link_to "Back to Arena (Home page)", root_path, class: "btn-back" %>
+  </div>
 </div>

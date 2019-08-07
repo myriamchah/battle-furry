@@ -1,0 +1,34 @@
+<div class ="flex-container">
+
+  <h2><%= @warrior.name %></h2>
+
+  <div class="cat-sheet">
+
+    <%= war_avatar(@warrior) %>
+
+    <div class="presentation">
+      <%= @warrior.intro %>
+    </div>
+
+    <div class="characteristics">
+      Life points: <%= @warrior.life_points %>
+      <br>
+      Points of attack: <%= @warrior.strength %>
+      <br>
+      Experience: <%= @warrior.xp %>
+    </div>
+
+    <div class="icon">
+      <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_warrior_path(@warrior) %>
+      <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, warrior_path(@warrior), method: :delete, :data => {:confirm => 'Are you sure?'}%>
+    </div>
+  </div>
+
+  <div class="center-items">
+    <%= link_to "See all Catfighters", warriors_path, class: "btn-action"  %>
+  </div>
+
+  <div class="center-items">
+    <%= link_to "Back to Arena (Home page)", root_path, class: "btn-back" %>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+h1 {
+  font-family: $headers-font;
+  font-size: 64px;
+  text-align: center;
+  text-shadow:1px 1px 2px white;
+}
+
+h2 {
+  font-family: $headers-font;
+  text-align: center;
+  text-shadow:1px 1px 2px white;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.hint {
+font-size: 14px;
+}

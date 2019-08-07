@@ -1,7 +1,9 @@
 <div class="flex-container">
 
-  <h1>New catfighter: </h1>
-  <p class="text-centered"> Please fill all information regarding your catfighter:</p>
+  <h1>Edit a catfighter: </h1>
+
+  <p class="text-centered"> Please update your catfighter:</p>
+  <i class="hint text-centered">No, you cannot update XP points, that would be cheating ;)</i>
 
   <div class="form">
       <%= simple_form_for @warrior do |f| %>
@@ -9,10 +11,10 @@
         <%= f.input :intro %>
         <%= f.input :life_points, label: "Life points", placeholder: '0 - 200', input_html: { min: 0, max: 200, step: 'any' } %>
         <%= f.input :strength, label: "Attack points", collection: (0..10)%>
-        <%= f.input :xp, disabled: true, label: "XP" %>
+        <%= f.input :xp, disabled: true, label: "XP"%>
         <%= f.file_field :avatar %>
         <br>
-        <%= f.submit "Enter the arena",input_html: {id: 'btn-submit'} %>
+        <%= f.submit "Update the catfighter",input_html: {id: 'btn-submit'} %>
       <% end %>
   </div>
 

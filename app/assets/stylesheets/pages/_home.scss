@@ -1,29 +1,12 @@
 
-h1 {
-  font-family: $headers-font;
-  font-size: 64px;
-  text-align: center;
-  text-shadow:1px 1px 2px white;
-}
-
-h2 {
-  font-family: $headers-font;
-  text-align: center;
-  text-shadow:1px 1px 2px white;
-}
-
 .flex-container {
   display: flex;
   flex-direction: column;
   font-family: $body-font;
-  height: 95vh;
+  height: 90vh;
   font-size: 24px;
   padding: 0px 12px;
-  img {
-    height: 20vh;
-    width: 20vh;
-    margin: 0 auto;
-  }
+  margin-bottom: 40px;
 }
 
 .intro {
