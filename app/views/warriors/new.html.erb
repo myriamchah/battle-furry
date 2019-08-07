@@ -1,14 +1,23 @@
 <div class="flex-container">
+
+  <h1>New catfighter: </h1>
+  <p style="text-align: center"> Please fill all information regarding your catfighter:</p>
+
   <div class="form">
-    <h2 class="caption p-3">Please add all infos regarding your new catfighter: </h2>
       <%= simple_form_for @warrior do |f| %>
         <%= f.input :name %>
         <%= f.input :intro %>
-        <%= f.input :life_points, label: "Life points" %>
-        <%= f.input :strength, label: "Attack points" %>
+        <%= f.input :life_points, label: "Life points", placeholder: '0 - 200' %>
+        <%= f.input :strength, label: "Attack points", placeholder: '0 - 10'%>
         <%= f.input :xp %>
-        <%= f.file_field :avatar %>
-        <%= f.submit "Let the cat enter the arena!" %>
+        <%= f.file_field :avatar, value: "Choose a file" %>
+        <br>
+        <%= f.submit "Enter the arena",input_html: {id: 'btn-submit'} %>
       <% end %>
   </div>
+
+  <div class="center-items">
+<%= link_to "Back to Arena (Home page)", root_path, class: "btn-back" %>
+
+</div>
 </div>
