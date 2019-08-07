@@ -11,6 +11,7 @@ class FightsController < ApplicationController
 
   def new
     @fight = Fight.new
+    @warriors = Warrior.all
   end
 
   def create
@@ -19,7 +20,7 @@ class FightsController < ApplicationController
     @fight.winner = helpers.winner
     if @fight.valid?
       @fight.save
-      redirect_to fights_path
+      redirect_to fight_path(@fight)
     else
       render :new
     end
@@ -35,8 +36,8 @@ class FightsController < ApplicationController
     @fight = Fight.find(params[:id])
   end
 
-  def set_fighters
-    @fighter_1 = Warrior.find(params["fight"]["fighter_1_id"].to_i)
-    @fighter_2 = Warrior.find(params["fight"]["fighter_2_id"].to_i)
+ def set_fighters
+   @fighter_1 = Warrior.find(params["fight"]["fighter_1_id"].to_i)
+   @fighter_2 = Warrior.find(params["fight"]["fighter_2_id"].to_i)
   end
 end

@@ -1,8 +1,12 @@
-<%= @fights.all %>
+<div class ="flex-container">
 
+ <h2>Check out all fights:</h2>
 <% @fights.each do |fight| %>
 <%= fight.fighter_1_id %>
 <%= fight.fighter_2_id %>
 <%= fight.strokes %>
 <%= fight.winner %>
+<br>
 <% end %>
+
+</div>

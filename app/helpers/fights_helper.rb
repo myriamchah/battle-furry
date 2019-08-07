@@ -1,5 +1,5 @@
 module FightsHelper
-    def strokes
+  def strokes
     stroke_2 = @fighter_1.life_points / @fighter_2.strength
     stroke_1 = @fighter_2.life_points / @fighter_1.strength
     return stroke_1 + stroke_2
