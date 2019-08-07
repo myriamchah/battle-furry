@@ -19,7 +19,7 @@
 .btn-back {
   background-color: $light-orange;
   text-decoration: none;
-  color: gray;
+  color: $dark-gray;
   text-align: center;
   border-radius: 4px;
   padding: 10px 20px;
@@ -29,6 +29,10 @@
   font-weight: bold;
 }
 
+.btn-back:hover {
+  background-color: $dark-gray;
+  color: gray;
+}
 .center-items {
   display: flex;
   justify-content: space-around;
