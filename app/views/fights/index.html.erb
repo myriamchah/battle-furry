@@ -1,0 +1,8 @@
+<%= @fights.all %>
+
+<% @fights.each do |fight| %>
+<%= fight.fighter_1_id %>
+<%= fight.fighter_2_id %>
+<%= fight.strokes %>
+<%= fight.winner %>
+<% end %>
