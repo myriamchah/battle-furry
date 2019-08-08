@@ -1,5 +1,4 @@
 module FightsHelper
-
   def strokes
     stroke_1 = 0
     stroke_2 = 0
@@ -33,5 +32,9 @@ module FightsHelper
     warrior = winner
     new_xp = warrior.xp + (strokes.to_i / 2)
     warrior.update(xp: new_xp)
+  end
+
+  def fighter_name(id)
+    Warrior.find(id).name
   end
 end

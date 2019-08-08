@@ -1,12 +1,22 @@
 <div class ="flex-container">
 
- <h2>Check out all fights:</h2>
-<% @fights.each do |fight| %>
-<%= fight.fighter_1_id %>
-<%= fight.fighter_2_id %>
-<%= fight.strokes %>
-<%= fight.winner %>
-<br>
-<% end %>
+  <h2>Check out all fights:</h2>
 
+  <div class="history-table">
+
+      <strong> Date </strong>
+      <strong> Fighter 1 </strong>
+      <strong> Fighter 2 </strong>
+      <strong> Attacks </strong>
+      <strong> Winner </strong>
+
+    <% @fights.each do |fight| %>
+      <div><%= fight.created_at.to_date %> </div>
+      <div><%= fighter_name(fight.fighter_1_id) %></div>
+      <div><%= fighter_name(fight.fighter_2_id) %></div>
+      <div><%= fight.strokes %></div>
+      <div><%= fight.winner %></div>
+      <br>
+    <% end %>
+  </div>
 </div>

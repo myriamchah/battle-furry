@@ -21,7 +21,7 @@ class FightsController < ApplicationController
   def create
     @fight = Fight.new(fight_params)
     @fight.strokes = helpers.strokes
-    @fight.winner = helpers.winner
+    @fight.winner = helpers.winner.name
     if @fight.valid?
       @fight.save
       helpers.update_xp
@@ -41,8 +41,8 @@ class FightsController < ApplicationController
     @fight = Fight.find(params[:id])
   end
 
- def set_fighters
-   @fighter_1 = Warrior.find(params["fight"]["fighter_1_id"].to_i)
-   @fighter_2 = Warrior.find(params["fight"]["fighter_2_id"].to_i)
+  def set_fighters
+    @fighter_1 = Warrior.find(params["fight"]["fighter_1_id"].to_i)
+    @fighter_2 = Warrior.find(params["fight"]["fighter_2_id"].to_i)
   end
 end
