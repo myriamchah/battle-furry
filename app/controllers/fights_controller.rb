@@ -4,6 +4,7 @@ class FightsController < ApplicationController
 
   def index
     @fights = Fight.all
+    @best_xp = helpers.best_xp
   end
 
   def show
