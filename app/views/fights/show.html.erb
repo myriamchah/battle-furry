@@ -1,9 +1,10 @@
 <div class ="flex-container">
 
   <h2>And the winner is:</h2>
-  <%= @fight.fighter_1_id %>
-  <%= @fight.fighter_2_id %>
-  <%= @fight.strokes %>
-  <%= @fight.winner %>
 
+  <p class="text-centered"> Congrats! <br> <%= @fighter_1.name %> and  <%= @fighter_2.name %> fought very bravely. <br> After <%= @fight.strokes %> claw attacks exchanged, there is only one survivor:  </p>
+
+  <h1> <%= @fight.winner %></h1>
+
+  <p class="text-centered"> <%= @fight.winner %> wins <%= @xp %> XP points.</p>
 </div>

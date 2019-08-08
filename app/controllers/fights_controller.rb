@@ -7,6 +7,9 @@ class FightsController < ApplicationController
   end
 
   def show
+    @fighter_1 = Warrior.find(@fight.fighter_1_id)
+    @fighter_2 = Warrior.find(@fight.fighter_2_id)
+    @xp = helpers.strokes / 2
   end
 
   def new
