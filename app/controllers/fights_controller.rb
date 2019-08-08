@@ -10,6 +10,7 @@ class FightsController < ApplicationController
     @fighter_1 = Warrior.find(@fight.fighter_1_id)
     @fighter_2 = Warrior.find(@fight.fighter_2_id)
     @xp = helpers.strokes / 2
+    @winner = helpers.winner
   end
 
   def new
@@ -23,6 +24,7 @@ class FightsController < ApplicationController
     @fight.winner = helpers.winner
     if @fight.valid?
       @fight.save
+      helpers.update_xp
       redirect_to fight_path(@fight)
     else
       render :new
