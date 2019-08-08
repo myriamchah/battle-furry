@@ -1,8 +1,20 @@
 module FightsHelper
+
   def strokes
-    stroke_2 = @fighter_1.life_points / (@fighter_2.strength * (1 + (@fighter_2.xp / 100)))
-    stroke_1 = @fighter_2.life_points / (@fighter_1.strength * (1 + (@fighter_1.xp / 100)))
-    return stroke_1 + stroke_2
+    stroke_1 = 0
+    stroke_2 = 0
+
+    life_1 = @fighter_1.life_points
+    life_2 = @fighter_2.life_points
+
+    until life_1 <= 0 || life_2 <= 0 do
+      life_2 -= (@fighter_1.strength * (1 + @fighter_1.xp * 0.01))
+      stroke_1 += 1
+      life_1 -= (@fighter_2.strength * (1 + @fighter_2.xp * 0.01))
+      stroke_2 += 1
+    end
+
+    stroke_1 + stroke_2
   end
 
   def winner
