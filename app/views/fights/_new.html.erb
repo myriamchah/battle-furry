@@ -3,9 +3,9 @@
 <div class="form">
   <%= simple_form_for @fight do |f| %>
     <%= f.input :fighter_1_id, collection: @warriors %>
-    <%= f.input :accessory_1_id, collection: Accessory.list_names %>
+    <%= f.input :accessory_1_id, collection: Accessory.all %>
     <%= f.input :fighter_2_id, collection: @warriors %>
-    <%= f.input :accessory_2_id, collection: Accessory.list_names %>
+    <%= f.input :accessory_2_id, collection: Accessory.all%>
     <br>
     <%= f.submit "Fight",input_html: {id: 'btn-submit'} %>
   <% end %>

@@ -7,3 +7,11 @@ supercat.avatar.attach(io: File.open('app/assets/images/supercat.jpg'), filename
 
 ladycat = Warrior.create(name: "Ladycat", intro: "Don't trust her polished claws!", life_points: 170, strength: 10)
 ladycat.avatar.attach(io: File.open('app/assets/images/pinkcat.jpg'), filename: 'pinkcat.jpg')
+
+banecat = Warrior.create(name: "Banecat", intro: "Gotham is yours!", life_points: 170, strength: 10)
+banecat.avatar.attach(io: File.open('app/assets/images/banecat.jpg'), filename: 'banecat.jpg')
+
+Accessory.create(category: "weapon", name: "Sword", effect: 2)
+Accessory.create(category: "weapon", name: "Metallic claws", effect: 4)
+Accessory.create(category: "shield", name: "Wooden shield", effect: 20)
+Accessory.create(category: "shield", name: "Steel shield", effect: 40)
