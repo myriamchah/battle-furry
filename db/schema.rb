@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_130257) do
+ActiveRecord::Schema.define(version: 2019_08_09_122229) do
+
+  create_table "accessories", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.integer "effect"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +48,10 @@ ActiveRecord::Schema.define(version: 2019_08_06_130257) do
     t.string "winner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "accessory_1_id"
+    t.integer "accessory_2_id"
+    t.index ["accessory_1_id"], name: "index_fights_on_accessory_1_id"
+    t.index ["accessory_2_id"], name: "index_fights_on_accessory_2_id"
     t.index ["fighter_1_id"], name: "index_fights_on_fighter_1_id"
     t.index ["fighter_2_id"], name: "index_fights_on_fighter_2_id"
   end
@@ -56,6 +68,8 @@ ActiveRecord::Schema.define(version: 2019_08_06_130257) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "fights", "accessories", column: "accessory_1_id"
+  add_foreign_key "fights", "accessories", column: "accessory_2_id"
   add_foreign_key "fights", "warriors", column: "fighter_1_id"
   add_foreign_key "fights", "warriors", column: "fighter_2_id"
 end

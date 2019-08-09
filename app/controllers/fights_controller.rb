@@ -27,14 +27,14 @@ class FightsController < ApplicationController
       helpers.update_xp
       redirect_to fight_path(@fight)
     else
-      render :new
+      redirect_to root_path
     end
   end
 
   private
 
   def fight_params
-    params.require(:fight).permit(:fighter_1_id, :fighter_2_id)
+    params.require(:fight).permit(:fighter_1_id, :fighter_2_id, :accessory_1_id, :accessory_2_id)
   end
 
   def set_fight
