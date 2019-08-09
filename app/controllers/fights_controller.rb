@@ -21,7 +21,7 @@ class FightsController < ApplicationController
   def create
     @fight = Fight.new(fight_params)
     @fight.strokes = helpers.strokes
-    @fight.winner = helpers.winner.name
+    @fight.winner = helpers.winner == "Ex-aequo" ? "Ex-aequo" : helpers.winner.name
     if @fight.valid?
       @fight.save
       helpers.update_xp

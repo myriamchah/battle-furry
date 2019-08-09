@@ -33,9 +33,11 @@ module FightsHelper
 
 # the winner gets as many xp points as hits given
   def update_xp
-    warrior = winner
-    new_xp = warrior.xp + (strokes.to_i / 2)
-    warrior.update(xp: new_xp)
+    if winner != "Ex-aequo"
+      warrior = winner
+      new_xp = warrior.xp + (strokes.to_i / 2)
+      warrior.update(xp: new_xp)
+    end
   end
 
 # get the name of a warrior, used in fights#index

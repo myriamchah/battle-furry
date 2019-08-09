@@ -31,6 +31,7 @@ module WarriorsHelper
 
 #return % of victories
   def wins_rate
-    wins_nb / fights_nb * 100
+    rate = wins_nb / fights_nb.to_f * 100
+    rate.nan? ? 0 : rate
   end
 end
