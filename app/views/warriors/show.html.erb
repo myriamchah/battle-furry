@@ -1,6 +1,6 @@
 <div class ="flex-container">
 
-  <h2><%= @warrior.name %></h2>
+  <h1><%= @warrior.name %></h1>
 
   <div class="cat-sheet">
 
@@ -9,6 +9,8 @@
     <div class="presentation">
       <%= @warrior.intro %>
     </div>
+
+    <h3>Characteristics: </h3>
 
     <div class="characteristics">
       Life points: <%= @warrior.life_points %>
@@ -21,6 +23,14 @@
     <div class="icon">
       <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_warrior_path(@warrior) %>
       <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, warrior_path(@warrior), method: :delete, :data => {:confirm => 'Are you sure?'}%>
+    </div>
+
+    <h3>Performance: </h3>
+
+    <div class="performance">
+      Has fought  <%=fights_nb %> times. <br>
+      Won <%= wins_nb %> fights! <br>
+     Its victory rate is now <%= wins_rate %> %! <br>
     </div>
   </div>
 
