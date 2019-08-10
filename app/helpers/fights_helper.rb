@@ -19,9 +19,9 @@ module FightsHelper
       stroke_2 += 1
     end
 
-    if stroke_1 == stroke_2
+    if life_1 == life_2
       winner = "Ex-aequo"
-    elsif stroke_1 < stroke_2
+    elsif life_1 > life_2
       winner = @fighter_1.name
     else
       winner = @fighter_2.name

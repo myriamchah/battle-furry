@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_122229) do
+ActiveRecord::Schema.define(version: 2019_08_10_143302) do
 
   create_table "accessories", force: :cascade do |t|
     t.string "category"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_122229) do
   create_table "warriors", force: :cascade do |t|
     t.string "name"
     t.string "intro"
-    t.string "avatar"
     t.integer "life_points"
     t.integer "strength"
     t.integer "xp"
