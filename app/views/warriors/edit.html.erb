@@ -14,12 +14,14 @@
         <%= f.input :xp, disabled: true, label: "XP"%>
         <%= f.file_field :avatar %>
         <br>
-        <%= f.submit "Update the catfighter",input_html: {id: 'btn-submit'} %>
+        <%= f.submit "Update the Catfighter",input_html: {id: 'btn-submit'} %>
       <% end %>
   </div>
 
   <div class="center-items">
-<%= link_to "Back to Arena", root_path, class: "btn-back" %>
-
-</div>
+    <%= link_to "Back to all Catfighters", warriors_path, class: "btn-action"  %>
+  </div>
+  <div class="center-items">
+    <%= link_to "Back to Arena", root_path, class: "btn-back" %>
+  </div>
 </div>

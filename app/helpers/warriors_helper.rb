@@ -2,7 +2,7 @@ module WarriorsHelper
 
  #get avatar with active storage
   def war_avatar(warrior)
-    unless warrior.avatar.nil?
+    if warrior.avatar.attached?
       image_tag(warrior.avatar)
     end
   end
