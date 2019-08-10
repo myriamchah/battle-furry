@@ -4,24 +4,46 @@
 
   <div class="history-table">
 
-      <strong> Date </strong>
-      <strong> Fighter 1 </strong>
-      <strong> Fighter 2 </strong>
-      <strong> Attacks </strong>
-      <strong> Winner </strong>
+    <strong> Date </strong>
+    <strong> Fighter 1 </strong>
+    <strong> Accessory 1 </strong>
+    <strong> Fighter 2 </strong>
+    <strong> Accessory 2 </strong>
+    <strong> Attacks </strong>
+    <strong> Winner </strong>
 
-    <% @fights.each do |fight| %>
-      <div><%= fight.created_at.to_date %> </div>
-      <div><%= fighter_name(fight.fighter_1_id) %></div>
-      <div><%= fighter_name(fight.fighter_2_id) %></div>
-      <div><%= fight.strokes %></div>
-      <div><%= fight.winner %></div>
+    <% if Fight.all.count != 0 %>
+      <% @fights.each do |fight| %>
+        <div><%= fight.created_at.to_date %> </div>
+        <div>
+          <%= fight.fighter_1.name%>
+          <%=image_tag(fight.fighter_1.avatar, class: "avatar-small")%>
+        </div>
+        <div><%= fight.accessory_1.name %></div>
+        <div>
+          <%= fight.fighter_2.name %>
+          <%=image_tag(fight.fighter_2.avatar, class: "avatar-small")%>
+        </div>
+        <div><%= fight.accessory_2.name %></div>
+        <div><%= fight.strokes %></div>
+        <div><%= fight.winner %></div>
+      <% end %>
     <% end %>
   </div>
 
   <h2>Who's the best fighter ?:</h2>
-  <%= best_winner %> <br>
-  <%= best_xp %> <br>
+  <% if Fight.all.count != 0 %>
+    <%= best_winner %> <br>
+    <%= best_xp %> <br>
+  <% end %>
+
+  <% if Fight.all.count == 0 %>
+    <p class="text-centered">No fights registered yet...</p>
+    <div class="center-items">
+      <%= link_to "Start a fight!", root_path, class: "btn-action" %>
+    </div>
+  <% end %>
+
 
    <div class="center-items">
     <%= link_to "Back to Arena", root_path, class: "btn-back" %>

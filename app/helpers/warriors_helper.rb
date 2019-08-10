@@ -8,6 +8,7 @@ module WarriorsHelper
   end
 
 #return the name and number of victories of the best catfighter, used on fights#index
+# but ex-aequo may come out as a best fighter - to be fixed
   def best_winner
     wins = Fight.all.group_by(&:winner).transform_values(&:count)
     return "The best catfighter is #{wins.max_by(&:last).first}, with #{wins.max_by(&:last).last} victories!"

@@ -6,6 +6,7 @@ module FightsHelper
     stroke_1 = 0
     stroke_2 = 0
 
+
     life_1 = compute_life_points(@fighter_1, @accessory_1)
     life_2 = compute_life_points(@fighter_2, @accessory_2)
 
@@ -16,8 +17,10 @@ module FightsHelper
     until life_1 <= 0 || life_2 <= 0 do
       life_2 -= (attack_1 * (1 + @fighter_1.xp * 0.01))
       stroke_1 += 1
-      life_1 -= (attack_2 * (1 + @fighter_2.xp * 0.01))
-      stroke_2 += 1
+      if life_2 >=0
+        life_1 -= (attack_2 * (1 + @fighter_2.xp * 0.01))
+        stroke_2 += 1
+      end
     end
 
     stroke_1 + stroke_2
@@ -45,11 +48,6 @@ module FightsHelper
     end
   end
 
-# get the name of a warrior, used in fights#index
-  def fighter_name(id)
-    Warrior.find(id).name
-  end
-
   def compute_life_points(warrior, accessory)
     if accessory.category == "shield"
       warrior.life_points + accessory.effect
@@ -58,7 +56,7 @@ module FightsHelper
     end
   end
 
- def compute_attack_points(warrior, accessory)
+  def compute_attack_points(warrior, accessory)
     if accessory.category == "weapon"
       warrior.strength * accessory.effect
     else

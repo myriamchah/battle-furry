@@ -1,7 +1,14 @@
 .history-table {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 8px;
   margin: 0 auto;
   text-align: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+  }
 }
