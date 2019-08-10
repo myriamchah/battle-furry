@@ -12,8 +12,8 @@ class FightsController < ApplicationController
     @fighter_2 = Warrior.find(@fight.fighter_2_id)
     @accessory_1 = Accessory.find(@fight.accessory_1_id)
     @accessory_2 = Accessory.find(@fight.accessory_2_id)
-    @xp = helpers.strokes / 2
-    @winner = helpers.winner
+    @xp = @fight.strokes / 2
+    @winner = Warrior.find_by_name(@fight.winner)
   end
 
   def new
@@ -22,13 +22,11 @@ class FightsController < ApplicationController
   end
 
   def create
-
     @fight = Fight.new(fight_params)
-    @fight.strokes = helpers.strokes
-    @fight.winner = helpers.winner == "Ex-aequo" ? "Ex-aequo" : helpers.winner.name
+    helpers.compute_outcome
     if @fight.valid?
       @fight.save
-      helpers.update_xp
+      Warrior.find_by_name(@fight.winner).update_xp(@fight.strokes) if @fight.winner != "Ex-aequo"
       redirect_to fight_path(@fight)
     else
       redirect_to root_path
@@ -54,5 +52,4 @@ class FightsController < ApplicationController
     @accessory_1 = Accessory.find(params["fight"]["accessory_1_id"])
     @accessory_2 = Accessory.find(params["fight"]["accessory_2_id"])
   end
-
 end

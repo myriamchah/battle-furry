@@ -4,7 +4,7 @@
 
   <p class="text-centered"> Congrats! <br> <%= @fighter_1.name %> and  <%= @fighter_2.name %> fought very bravely. <br> After <%= @fight.strokes %> claw attacks exchanged, there might be only one survivor:  </p>
 
-  <% if @winner == "Ex-aequo" %>
+  <% if @fight.winner == "Ex-aequo" %>
 
     <h1> Ex-aequo </h1>
     <%= image_tag('claws.png', class: "avatar") %>
@@ -12,7 +12,7 @@
 
   <%else %>
 
-    <h1> <%= @winner.name %></h1>
+    <h1> <%= @fight.winner %></h1>
     <%= image_tag(@winner.avatar, class: "avatar") %>
     <p class="text-centered"> <%= @winner.name %> wins <%= @xp %> XP points.</p>
 

@@ -10,7 +10,7 @@ module WarriorsHelper
 #return the name and number of victories of the best catfighter, used on fights#index
 # but ex-aequo may come out as a best fighter - to be fixed
   def best_winner
-    wins = Fight.all.group_by(&:winner).transform_values(&:count)
+    wins = Fight.all.group_by(&:winner).select{|k,v| k != "Ex-aequo"}.transform_values(&:count)
     return "The best catfighter is #{wins.max_by(&:last).first}, with #{wins.max_by(&:last).last} victories!"
   end
 
@@ -18,21 +18,5 @@ module WarriorsHelper
   def best_xp
     warrior = Warrior.all.max_by(&:xp)
     return "The most experienced fighter is #{warrior.name}, with #{warrior.xp} XP points."
-  end
-
-#return nb of fights
-  def fights_nb
-    @warrior.fights_as_fighter_1.count + @warrior.fights_as_fighter_2.count
-  end
-
-#return nb of victories
-  def wins_nb
-    Fight.all.where(winner: @warrior.name).count
-  end
-
-#return % of victories
-  def wins_rate
-    rate = (wins_nb / fights_nb.to_f * 100).round(1)
-    rate.nan? ? 0 : rate
   end
 end

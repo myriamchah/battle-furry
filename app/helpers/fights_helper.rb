@@ -2,10 +2,9 @@ module FightsHelper
 
   # each attack afflicts damages equal to strength, weighted by xp points and accessory as a weapon.
   # life points are updated if accessory is a shield
-  def strokes
+  def compute_outcome
     stroke_1 = 0
     stroke_2 = 0
-
 
     life_1 = compute_life_points(@fighter_1, @accessory_1)
     life_2 = compute_life_points(@fighter_2, @accessory_2)
@@ -13,39 +12,22 @@ module FightsHelper
     attack_1 = compute_attack_points(@fighter_1, @accessory_1)
     attack_2 = compute_attack_points(@fighter_2, @accessory_2)
 
-
     until life_1 <= 0 || life_2 <= 0 do
       life_2 -= (attack_1 * (1 + @fighter_1.xp * 0.01))
       stroke_1 += 1
-      if life_2 >=0
-        life_1 -= (attack_2 * (1 + @fighter_2.xp * 0.01))
-        stroke_2 += 1
-      end
+      life_1 -= (attack_2 * (1 + @fighter_2.xp * 0.01))
+      stroke_2 += 1
     end
 
-    stroke_1 + stroke_2
-  end
-
-# the winner is the one who had to hit less
-  def winner
-    stroke_2 = @fighter_1.life_points / @fighter_2.strength.to_f
-    stroke_1 = @fighter_2.life_points / @fighter_1.strength.to_f
     if stroke_1 == stroke_2
-      return "Ex-aequo"
+      winner = "Ex-aequo"
     elsif stroke_1 < stroke_2
-      return @fighter_1
+      winner = @fighter_1.name
     else
-      return @fighter_2
+      winner = @fighter_2.name
     end
-  end
 
-# the winner gets as many xp points as hits given
-  def update_xp
-    if winner != "Ex-aequo"
-      warrior = winner
-      new_xp = warrior.xp + (strokes.to_i / 2)
-      warrior.update(xp: new_xp)
-    end
+    @fight.update(winner: winner, strokes: (stroke_1 + stroke_2))
   end
 
   def compute_life_points(warrior, accessory)
